@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
-import './App.module.css'
+import './App.module.css';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -27,11 +27,11 @@ function App() {
     }
 
     const contact = { id: nanoid(), name, number };
-    setContacts([...contacts, contact]);
+    setContacts((prevContacts) => [...prevContacts, contact]);
   };
 
   const deleteContact = (id) => {
-    setContacts(contacts.filter((contact) => contact.id !== id));
+    setContacts((prevContacts) => prevContacts.filter((contact) => contact.id !== id));
   };
 
   const isContactExist = (name) => {
